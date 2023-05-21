@@ -9,4 +9,5 @@ def read_data(path: str = "./data/credit_cards.xls") -> pd.DataFrame:
 def get_split_values(data: pd.DataFrame, target_column="default payment next month") -> (np.array, np.array):
     x = data.drop(target_column, axis=1).values
     y = data[target_column].values
+    # todo drop x first column
     return x, y
