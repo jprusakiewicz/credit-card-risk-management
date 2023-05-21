@@ -4,3 +4,4 @@ numpy
 scikit-learn
 imbalanced-learn
 omegaconf
+pytest
