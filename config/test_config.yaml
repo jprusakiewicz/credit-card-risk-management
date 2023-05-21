@@ -1,11 +1,14 @@
 preprocessing:
-  - todo
+  scaler:
+    - todo
+    -
 train_test_split:
   test_size: 0.3 # do not change value
   random_state: 20
 
 feature_selection:
-  LinearSVC:
+  type: "LinearSVC"
+  params:
     C: 0.01
     penalty: l1
     dual: False
