@@ -15,10 +15,10 @@ def rescale_data(data: np.array, config) -> np.array:
     pass
 
 
-def feature_selection(x, y):
+def feature_selection(x, y, config):
     # from sklearn.feature_selection import VarianceThreshold
-    return SelectFromModel(LinearSVC(C=0.01, penalty="l1", dual=False)).fit_transform(x, y)  # todo params from config
-
+    selector = SelectFromModel(LinearSVC(**config.LinearSVC)).fit(x, y)  # todo params from config
+    return selector
 
 def balance_data(data: np.array, config) -> np.array:
     # use one of belows options to balance data (create switch case based on config)
