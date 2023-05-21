@@ -1,8 +1,9 @@
 name: Run on PR
 
 on:
-  branches:
-    - main
+  push:
+    branches:
+      - main
   pull_request:
     types:
       - opened
