@@ -16,3 +16,4 @@ class TestMain(TestCase):
         results = run()
         # assert
         self.assertGreater(results['accuracy'], 0)
+
