@@ -20,4 +20,5 @@ def balance_data(data: np.array, config) -> np.array:
     # 3. from imblearn.under_sampling import TomekLinks
     # 4. imblearn.under_sampling import AllKNN
     # 5. SMOTE + Tomek
+    # raise error if string in config not matching any case
     pass
