@@ -20,8 +20,6 @@ def build_model(config):
             model = GaussianNB
         case "MLPClassifier":
             model = MLPClassifier
-        case "Perceptron":
-            model = Perceptron
         case "KNN":
             model = KNeighborsClassifier
         case "GBoost":
