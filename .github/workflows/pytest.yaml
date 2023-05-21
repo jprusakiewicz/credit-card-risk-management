@@ -1,9 +1,13 @@
 name: Run on PR
 
 on:
+  branches:
+    - main
   pull_request:
     types:
       - opened
+      - synchronize
+
 
 jobs:
   test:
