@@ -1,5 +1,8 @@
 import numpy as np
 
+from sklearn.svm import LinearSVC
+from sklearn.feature_selection import SelectFromModel
+
 
 def preprocess(data: np.array, config) -> np.array:
     # todo
@@ -7,9 +10,14 @@ def preprocess(data: np.array, config) -> np.array:
 
 
 def rescale_data(data: np.array, config) -> np.array:
-    #from sklearn.preprocessing import MinMaxScaler
+    # from sklearn.preprocessing import MinMaxScaler
     # todo will we need to scale x_test as well?
     pass
+
+
+def feature_selection(x, y):
+    # from sklearn.feature_selection import VarianceThreshold
+    return SelectFromModel(LinearSVC(C=0.01, penalty="l1", dual=False)).fit_transform(x, y)  # todo params from config
 
 
 def balance_data(data: np.array, config) -> np.array:
@@ -20,5 +28,6 @@ def balance_data(data: np.array, config) -> np.array:
     # 3. from imblearn.under_sampling import TomekLinks
     # 4. imblearn.under_sampling import AllKNN
     # 5. SMOTE + Tomek
+    # 6. unbalanced
     # raise error if string in config not matching any case
     pass
