@@ -10,7 +10,7 @@ from evaluate import evaluate_model
 from preprocess import feature_selection
 
 
-# todo save artifacts (config, model, metrics, etc.) in one place
+# todo kuba save artifacts (config, model, metrics, etc.) in one place
 def run() -> dict:
     config = OmegaConf.load('config/test_config.yaml')
     data = read_data()
