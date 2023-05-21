@@ -1,5 +1,7 @@
 
-train_test_split: 0.2
+train_test_split:
+  test_size: 0.15
+  random_state: 20
 model:
   type: "LogisticRegression"
   params:

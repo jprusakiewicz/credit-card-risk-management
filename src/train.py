@@ -1,22 +1,29 @@
-from sklearn.linear_model import LogisticRegression, Perceptron
+from sklearn.linear_model import LogisticRegression, Perceptron, RidgeClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
-
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 
 def build_model(config):
     match config.type:
         case "LogisticRegression":
             model = LogisticRegression
-        case "DecisionTreeClassifier":
+        case "RidgeClassifier":
+            model = RidgeClassifier
+        case "DecisionTree":
             model = DecisionTreeClassifier
+        case "RandomForest":
+            model = RandomForestClassifier
         case "GaussianNB":
             model = GaussianNB
         case "MLPClassifier":
             model = MLPClassifier
         case "Perceptron":
             model = Perceptron
+        case "KNN":
+            model = KNeighborsClassifier
         case _:
             raise ValueError(f"model type {config.model.type} not supported")
     return model(**config.params)
@@ -25,5 +32,4 @@ def build_model(config):
 def run_training(x, y, config):
     model = build_model(config.model)
     model.fit(x, y)
-    # todo save model
     return model
