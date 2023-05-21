@@ -1,7 +1,7 @@
 from sklearn.linear_model import LogisticRegression, Perceptron, RidgeClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, ExtraTreesClassifier, AdaBoostClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
@@ -24,6 +24,12 @@ def build_model(config):
             model = Perceptron
         case "KNN":
             model = KNeighborsClassifier
+        case "GBoost":
+            model = GradientBoostingClassifier
+        case "AdaBoost":
+            model = AdaBoostClassifier
+        case "ExtraTrees":
+            model = ExtraTreesClassifier
         case _:
             raise ValueError(f"model type {config.model.type} not supported")
     return model(**config.params)
